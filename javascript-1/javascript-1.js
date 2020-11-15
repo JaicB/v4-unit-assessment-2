@@ -269,7 +269,7 @@ bark.call(name)
 */
 
 //CODE HERE
-  const fidoSpeak = bark.call
+  const fidoSpeak = bark.call(this.name)
   
 ////////////////////PROBLEM 13////////////////////
 /*
@@ -280,7 +280,9 @@ bark.call(name)
 */
 
 //CODE HERE
-
+const teachTrick = function (trick) {
+    return this.tricks([])
+}
 
 /*
     Invoke the bind method on teachTrick, passing in fido as the context and the string 'stay' as a trick.
@@ -288,7 +290,7 @@ bark.call(name)
 */
 
 //CODE HERE
-  
+const teachStay = teachTrick.bind(fido, ['stay'])
   
 ////////////////////PROBLEM 14////////////////////
 /*
@@ -299,7 +301,10 @@ bark.call(name)
 */
 
 //CODE HERE
-
+function dogIntro (treat, toy) {
+    return `${this.name} is a ${this.breed} that loves ${this.treat} and their ${this.toy}!`
+}
+ 
 
 /*
     Invoke the apply method on dogIntro, passing in fido as the context 
@@ -308,7 +313,7 @@ bark.call(name)
 */
 
 //CODE HERE
-  
+const fidoIntro = dogIntro.apply(fido ['chicken', 'tennis ball']);
 
 ////////////////////PROBLEM 15////////////////////
 /*
@@ -318,7 +323,13 @@ bark.call(name)
 */
 
 //CODE HERE
-
+function Phone(brand, model, storage, color, sold) {
+    this.brand = brand
+    this.model = model
+    this.storage = storage
+    this.color = color
+    this.sold = sold
+}
   
 /*
     Next make three new phones using your constructor function.
@@ -332,11 +343,11 @@ bark.call(name)
 */
 
 //CODE HERE
-  // let phone1 = 
+  let phone1 = new Phone('Apple', 'Xs Max', 32, 'Space Grey', false)
   
-  // let phone2 = 
+  let phone2 = new Phone('Samsung', 'Galaxy 20', 64, 'Ocean Grey', false)
   
-  // let phone3 = 
+  let phone3 = new Phone('Motorola', 'Razr V3i', 2, 'Silver', false)
   
 /*
     Last, add a prototype method to Phone.
@@ -347,3 +358,6 @@ bark.call(name)
 */
 
 //CODE HERE
+Phone.prototype.sell = function () {
+    return `${this.brand} ${this.model} has been sold.`
+}
